@@ -6,7 +6,7 @@ from .forms import itemForm
 
 
 def get_todo_list(request):
-    items = item.objects.all()
+    Items = item.objects.all()
     context = {
         'items': items
     }
@@ -26,8 +26,8 @@ def add_item(request):
     return render(request, 'todo/add_item.html', context)
 
 
-def edit_item(request, item_id):
-    Item = get_object_or_404(item, id=item_id)
+def edit_item(request, Item_id):
+    Item = get_object_or_404(item, id=Item_id)
     if request.method == 'POST':
         form = itemForm(request.POST, instance=Item)
         if form.is_valid():
@@ -40,14 +40,14 @@ def edit_item(request, item_id):
     return render(request, 'todo/edit_item.html', context)
 
 
-def toggle_item(request, item_id):
-    Item = get_object_or_404(item, id=item_id)
+def toggle_item(request, Item_id):
+    Item = get_object_or_404(item, id=Item_id)
     Item.done = not Item.done
     Item.save()
     return redirect('get_todo_list')
 
 
-def delete_item(request, item_id):
-    Item = get_object_or_404(item, id=item_id)
+def delete_item(request, Item_id):
+    Item = get_object_or_404(item, id=Item_id)
     Item.delete()
     return redirect('get_todo_list')
