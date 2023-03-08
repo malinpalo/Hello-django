@@ -25,13 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-if development:
-    ALLOWED_HOSTS = ['localhost']
-else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
-
 DEBUG = True
-SECRET_KEY = os.environ.get('SECRET_KEY', ')547&25r_m=b3!bo(1cygtl2l5rz%gq)tq&nc#)0y#1wln)2xb')
+
+
+ALLOWED_HOSTS = ['malpal-django-app.herokuapp.com']
+
+
+SECRET_KEY = '547&25r_m=b3!bo(1cygtl2l5rz%gq)tq&nc#)0y#1wln)2xb'
 
 
 # Application definition
