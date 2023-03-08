@@ -8,7 +8,7 @@ from .forms import itemForm
 def get_todo_list(request):
     Items = item.objects.all()
     context = {
-        'items': items
+        'Items': Items
     }
     return render(request, 'todo/todo_list.html', context)
 
